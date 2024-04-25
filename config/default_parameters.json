@@ -1,0 +1,53 @@
+{
+  "train_params": {
+    "num_epochs": 200,
+    "batch_size": 8,
+    "val": true,
+    "number_logs": 1,
+    "pin_memory": false,
+    "using_tensorboard": true,
+    "save_every": 1
+  },
+  "dataset_params": {
+    "swissprot_pdb": {
+      "src_vocab_size":114,
+      "tgt_vocab_size": 25,
+      "format": ".pdb"
+    },
+    "AlphaFoldDB": {
+      "src_vocab_size": 114,
+      "tgt_vocab_size": 25,
+      "format": ".mmcif"
+    },
+    "AlphaFoldDB_10M":{
+      "src_vocab_size": 114,
+      "tgt_vocab_size": 25,
+      "format": ".mmcif"
+    },
+    "PDB": {
+      "src_vocab_size":114,
+      "tgt_vocab_size": 25,
+      "format": ".mmcif"
+    }
+  },
+  "model_params": {
+    "transformer": {
+      "ff_hid_dim": 2048,
+      "num_blocks": 6,
+      "num_heads": 8,
+      "emb_size":512,
+      "pool_learning_method": 0,
+      "learning_rate": 1e-04,
+      "scheduler_factor": 0.1,
+      "warmup_steps": 40,
+      "momentum": 0.9,
+      "optimizer": "adam",
+      "metric": "acc",
+      "loss_function": "cross_entropy",
+      "weight_decay": 0.00001,
+      "drop_rate": 0.1,
+      "growth_rate": 32,
+      "memory_efficient": false
+    }
+  }
+}
